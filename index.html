@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pixel-Perfect</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <script src="https://kit.fontawesome.com/935385874d.js" crossorigin="anonymous"></script>
+    <!-- CSS -->
+    <link rel="stylesheet" href="styles/style.css">
+</head>
+
+
+<body>
+
+    <header class="main-header">
+
+        <div class="header-container main-layout flex space-between align-center">
+            <div class="logo">Blogin<span class="logo-dot">.</span></div>
+            <i class="hamburger fas fa-bars fa-2x" onclick="toggleMenu(false)"></i>
+            <nav class="main-nav">
+                <ul class="flex">
+                    <li><a href="#" class="nav-link flex justify-center align-center"
+                            onclick="toggleActive(this)">Journal</a></li>
+                    <li><a href="#" class="nav-link flex justify-center align-center" onclick="toggleActive(this)">About</a>
+                    </li>
+                    <li><a href="#" class="nav-link flex justify-center align-center" onclick="toggleActive(this)">Work</a>
+                    </li>
+                    <li><a href="#" class="nav-link flex justify-center align-center"
+                            onclick="toggleActive(this)">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+
+    </header>
+
+
+    <main class="main-content main-layout flex">
+
+        <div class="card flex">
+            <div class="card-image">
+                <img src="images/1.jpg" alt="">
+            </div>
+            <div class="card-description flex column">
+                <h2 class="card-title">Duis aute irure dolor in henderit in voluptate.</h2>
+                <p class="card-text">Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
+                    ex ea commo doconsequat, sunt in culpa qui officia deserunt mollit anim id est laborum. </p>
+                <p class="card-text">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
+                    fugiat nulla pariatur...</p>
+                <button class="btn-continue-reading">Continue Reading</button>
+            </div>
+        </div>
+
+        <div class="card flex">
+            <div class="card-image">
+                <img src="images/2.jpg" alt="">
+            </div>
+            <div class="card-description flex column">
+                <h2 class="card-title">Duis aute irure dolor in henderit in voluptate.</h2>
+                <p class="card-text">Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
+                    ex ea commo doconsequat, sunt in culpa qui officia deserunt mollit anim id est laborum. </p>
+                <p class="card-text">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
+                    fugiat nulla pariatur...</p>
+                <button class="btn-continue-reading">Continue Reading</button>
+            </div>
+        </div>
+
+        <div class="card flex">
+            <div class="card-image">
+                <img src="images/3.jpg" alt="">
+            </div>
+            <div class="card-description flex column">
+                <h2 class="card-title">Duis aute irure dolor in henderit in voluptate.</h2>
+                <p class="card-text">Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
+                    ex ea commo doconsequat, sunt in culpa qui officia deserunt mollit anim id est laborum. </p>
+                <p class="card-text">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
+                    fugiat nulla pariatur...</p>
+                <button class="btn-continue-reading">Continue Reading</button>
+            </div>
+        </div>
+
+        <div class="target-buttons flex space-between">
+            <button class="previous-button">← Previous</button>
+            <button class="next-button">Next →</button>
+        </div>
+
+    </main>
+
+
+    <footer class="main-footer flex column space-evenly align-center">
+
+        <div class="logo">Blogin<span class="logo-dot">.</span></div>
+        <small class="copy-rights">&copy;2014 Blogin.com - All Rights Reserved - Find more free Templates at
+            Pixelhint.com</small>
+
+        <div class="social">
+            <button class="footer-button facebook"><a href="#"><img src="logos/facebook.png"></a></button>
+            <button class="footer-button twitter"><a href="#"><img src="logos/twitter.png"></a></button>
+            <button class="footer-button behance"><a href="#"><img src="logos/behance.png"></a></button>
+            <button class="footer-button dribble"><a href="#"><img src="logos/dribble.png"></a></button>
+        </div>
+
+    </footer>
+
+    <div class="main-screen" onclick="toggleMenu()"></div>
+
+    <script>
+
+        function toggleActive(elAnchor) {
+            var elAnchors = document.querySelectorAll('.nav-link');
+            elAnchors.forEach(function (currElAnchor) {
+                if (currElAnchor !== elAnchor) currElAnchor.classList.remove('active');
+            })
+            elAnchor.classList.toggle('active');
+        }
+
+        function toggleMenu(isOpen) {
+            const elNavLinks = document.querySelectorAll('.nav-link');
+            elNavLinks.forEach(elNavLink => {
+                elNavLink.style.visibility = (isOpen) ? 'hidden' : 'visible';
+                elNavLink.style.height = (isOpen) ? '0' : '70px';
+            });
+            const elMainScreen = document.querySelector('.main-screen');
+            elMainScreen.classList.toggle('active');
+            document.querySelector('.hamburger').onclick = () => toggleMenu(!isOpen);
+            elMainScreen.onclick = () => toggleMenu(!isOpen);
+        }
+
+    </script>
+
+</body>
+
+</html>
